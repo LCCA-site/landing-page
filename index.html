@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Li chiamavamo cartoni animati</title>
+  <meta name="description" content="Tutto quello che c'è di nuovo sui cartoni della tua infanzia, in una email a settimana.">
+
+  <style>
+    :root {
+      --pink: #f52b98;
+      --blue: #19c5e8;
+      --green: #65df18;
+      --ink: #19191f;
+      --paper: #ffffff;
+      --muted: #505563;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image:
+        linear-gradient(#e9e9ed 1px, transparent 1px),
+        linear-gradient(90deg, #e9e9ed 1px, transparent 1px);
+      background-size: 46px 46px;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    .container {
+      width: min(100% - 36px, 850px);
+      margin: 0 auto;
+    }
+
+    header {
+      padding-top: 34px;
+      text-align: center;
+    }
+
+    .brand-logo {
+      display: block;
+      width: min(100%, 540px);
+      height: auto;
+      max-height: 280px;
+      object-fit: contain;
+      margin: 0 auto 22px;
+    }
+
+    .intro {
+      max-width: 650px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      max-width: 650px;
+      margin: 0 auto 16px;
+      font-size: clamp(28px, 5vw, 36px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -.7px;
+    }
+
+    .intro p {
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: clamp(16px, 2.5vw, 20px);
+      line-height: 1.45;
+    }
+
+    /* Newsletter */
+    .newsletter {
+      width: min(100%, 520px);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .email-input {
+      min-width: 0;
+      flex: 1;
+      padding: 13px 16px;
+      border: 2px solid #d4d5da;
+      border-radius: 10px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 16px;
+    }
+
+    .email-input:focus {
+      outline: 3px solid #f52b9838;
+      border-color: var(--pink);
+    }
+
+    .subscribe-button {
+      padding: 13px 20px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--pink);
+      color: white;
+      box-shadow: 0 4px 0 #b9156c;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .15s, filter .15s;
+    }
+
+    .subscribe-button:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .frequency {
+      margin: 13px 0 5px;
+      color: #666b76;
+      font-size: 14px;
+    }
+
+    .consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin: 4px auto 0;
+      max-width: 500px;
+      text-align: left;
+      color: #666b76;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .consent input {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 17px;
+      margin-top: 3px;
+      accent-color: var(--pink);
+    }
+
+    a {
+      color: #3156c9;
+    }
+
+    /* Tre riquadri */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 17px;
+      margin-top: 44px;
+    }
+
+    .feature {
+      min-width: 0;
+      padding: 17px 18px 20px;
+      border: 2px solid var(--ink);
+      border-radius: 13px;
+      background: white;
+      box-shadow: 5px 5px 0 var(--card-color);
+      text-align: left;
+    }
+
+    .feature:nth-child(1) {
+      --card-color: var(--pink);
+    }
+
+    .feature:nth-child(2) {
+      --card-color: var(--blue);
+    }
+
+    .feature:nth-child(3) {
+      --card-color: var(--green);
+    }
+
+    .feature h2 {
+      margin: 0 0 8px;
+      font-size: 19px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .feature p {
+      margin: 0;
+      color: #505563;
+      font-size: 15.5px;
+      line-height: 1.42;
+    }
+
+    /* Collegamento YouTube */
+    .youtube-section {
+      padding: 34px 0 12px;
+      text-align: center;
+    }
+
+    .youtube-caption {
+      margin: 0 auto 22px;
+      font-size: 16px;
+    }
+
+    .youtube-link {
+      display: inline-block;
+      width: min(100%, 360px);
+      border-radius: 14px;
+      transition: transform .2s;
+    }
+
+    .youtube-link:hover {
+      transform: translateY(-4px);
+    }
+
+    .youtube-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    footer {
+      padding: 28px 0 25px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: #626675;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        padding-top: 24px;
+      }
+
+      .brand-logo {
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        font-size: clamp(27px, 7vw, 34px);
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+
+      .email-input,
+      .subscribe-button {
+        width: 100%;
+        min-height: 49px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin: 36px 5px 0;
+      }
+
+      .feature {
+        padding: 18px;
+      }
+
+      .feature h2 {
+        font-size: 19px;
+      }
+
+      .youtube-section {
+        padding-top: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <!-- LOGO: carica il tuo file e chiamalo logo.png -->
+    <header>
+      <img
+        class="brand-logo"
+        src="logo.png"
+        alt="Li chiamavamo cartoni animati"
+      >
+    </header>
+
+    <!-- TITOLO E PRESENTAZIONE -->
+    <section class="intro">
+      <h1>
+        Tutto quello che c’è di nuovo sui cartoni della tua infanzia,
+        in una email a settimana.
+      </h1>
+
+      <p>
+        Ogni settimana raccolgo dal mondo le novità sui brand dei
+        cartoni animati anni ’80 e ’90: action figure in arrivo,
+        videogiochi, fumetti, film e serie in uscita al cinema
+        o in streaming. Tutto in una sola email, da leggere in pochi minuti.
+      </p>
+    </section>
+
+    <!--
+      NEWSLETTER:
+      Prima della pubblicazione, sostituisci questo blocco con il
+      modulo ufficiale incorporato di Brevo. Vedi le istruzioni sotto.
+      Il modulo qui sotto è solo una bozza grafica e NON registra iscritti.
+    -->
+    <section class="newsletter" aria-label="Iscrizione alla newsletter">
+      <form id="newsletter-form">
+        <div class="form-row">
+          <input
+            class="email-input"
+            type="email"
+            name="email"
+            placeholder="La tua email"
+            aria-label="La tua email"
+            autocomplete="email"
+            required
+          >
+
+          <button class="subscribe-button" type="submit">
+            Iscriviti alla newsletter
+          </button>
+        </div>
+
+        <p class="frequency">
+          Una email a settimana. Niente spam. Ti disiscrivi quando vuoi.
+        </p>
+
+        <label class="consent">
+          <input type="checkbox" name="consenso" required>
+          <span>
+            Acconsento a ricevere la newsletter secondo quanto descritto
+            nell’<a href="privacy.html">informativa privacy</a>.
+          </span>
+        </label>
+      </form>
+    </section>
+
+    <!-- TRE RIQUADRI DESCRITTIVI -->
+    <section class="features" aria-label="Perché iscriversi">
+
+      <article class="feature">
+        <h2>Ogni novità in un posto solo</h2>
+        <p>
+          Non devi più seguire dieci siti e venti pagine.
+          Le uscite che contano, dalle action figure ai fumetti,
+          arrivano a te.
+        </p>
+      </article>
+
+      <article class="feature">
+        <h2>Un po’ di tutto, per ogni passione</h2>
+        <p>
+          Giocattoli da collezione, videogiochi, fumetti,
+          cinema e streaming: ognuno trova qualcosa che lo riguarda.
+        </p>
+      </article>
+
+      <article class="feature">
+        <h2>Scelte da un fan, non da un algoritmo</h2>
+        <p>
+          Ogni notizia la leggo e la scelgo io, perché ci tengo davvero
+          a questi cartoni. Niente elenchi infiniti: solo ciò che
+          vale la pena sapere.
+        </p>
+      </article>
+
+    </section>
+
+    <!-- IMMAGINE CLICCABILE DEL CANALE YOUTUBE -->
+    <section class="youtube-section">
+      <p class="youtube-caption">
+        Fai un salto negli anni ’80 e ’90 guardando i miei video su
+        <a
+          href="https://www.youtube.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >YouTube</a>.
+      </p>
+
+      <a
+        class="youtube-link"
+        href="https://www.youtube.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visita il mio canale YouTube"
+      >
+        <!-- Sostituisci con la tua immagine del televisore -->
+        <img
+          class="youtube-image"
+          src="tv-youtube.png"
+          alt="Guarda i video sul mio canale YouTube"
+          loading="lazy"
+        >
+      </a>
+    </section>
+
+    <footer>
+      <a href="privacy.html">Informativa privacy</a>
+    </footer>
+
+  </main>
+
+  <script>
+    // Evita che il modulo grafico sembri funzionante prima
+    // dell'integrazione reale con Brevo.
+    document.getElementById("newsletter-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      alert("Il modulo deve ancora essere collegato a Brevo. Completa l'integrazione prima di pubblicare la pagina.");
+    });
+  </script>
+</body>
+</html>
